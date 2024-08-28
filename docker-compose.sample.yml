@@ -8,4 +8,5 @@ services:
     volumes:
       - "./config.toml:/usr/src/phantomsdr/config.toml"
     devices:
+      # RTL-SDR devices
       - /dev/bus/usb:/dev/bus/usb
