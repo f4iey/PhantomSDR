@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 WORKDIR /usr/src/phantomsdr
 
-RUN apt install build-essential cmake pkg-config meson libfftw3-dev libwebsocketpp-dev libflac++-dev zlib1g-dev libzstd-dev libboost-all-dev libopus-dev libliquid-dev
+RUN apt update && apt install -y build-essential cmake pkg-config meson libfftw3-dev libwebsocketpp-dev libflac++-dev zlib1g-dev libzstd-dev libboost-all-dev libopus-dev libliquid-dev
 RUN echo SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", MODE="0666", GROUP="plugdev", SYMLINK+="rtl_sdr" > /etc/udev/rules.d/99-rtl_sdr.rules
 COPY . .
 RUN meson build --prefer-static
