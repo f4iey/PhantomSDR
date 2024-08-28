@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  phantomsdr:
+    container_name: phantomsdr
+    image: ghcr.io/f4iey/PhantomSDR:latest
+    ports:
+      - "9002:9002"
+    volumes:
+      - "./config.toml:/usr/src/phantomsdr/config.toml"
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
