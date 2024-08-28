@@ -5,7 +5,7 @@ RUN apt install build-essential cmake pkg-config meson libfftw3-dev libwebsocket
 RUN echo SUBSYSTEM=="usb", ATTRS{idVendor}=="0bda", ATTRS{idProduct}=="2838", MODE="0666", GROUP="plugdev", SYMLINK+="rtl_sdr" > /etc/udev/rules.d/99-rtl_sdr.rules
 RUN meson build --prefer-static
 RUN meson compile -C build
-COPY build/spectrumserver .
+COPY src/build/spectrumserver .
 COPY config.toml .
 EXPOSE 9002
 
